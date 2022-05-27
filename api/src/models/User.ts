@@ -11,6 +11,7 @@ export type UserDocument = Document & {
   email: string
   password: string
   role: string
+  joinDate: Date
 }
 
 const userSchema = new mongoose.Schema({
@@ -36,6 +37,10 @@ const userSchema = new mongoose.Schema({
     type: String,
     enum: Role,
     default: Role.User,
+    required: true,
+  },
+  joinDate: {
+    type: Date,
     required: true,
   },
 })

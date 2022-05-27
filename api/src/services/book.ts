@@ -1,53 +1,60 @@
 import Book, { BookDocument } from '../models/Book'
 import { NotFoundError } from '../helpers/apiError'
 
+// create
 const create = async (book: BookDocument): Promise<BookDocument> => {
   return book.save()
 }
 
+// findAll
 const findAll = async (): Promise<BookDocument[]> => {
   return Book.find()
 }
 
-// const findById = async (movieId: string): Promise<MovieDocument> => {
-//   const foundMovie = await Movie.findById(movieId)
+// findById
+const findById = async (bookId: string): Promise<BookDocument> => {
+  const foundBook = await Book.findById(bookId)
 
-//   if (!foundMovie) {
-//     throw new NotFoundError(`Movie ${movieId} not found`)
-//   }
+  if (!foundBook) {
+    throw new NotFoundError(`Book ${bookId} not found`)
+  }
 
-//   return foundMovie
-// }
+  return foundBook
+}
 
-// const update = async (
-//   movieId: string,
-//   update: Partial<MovieDocument>
-// ): Promise<MovieDocument | null> => {
-//   const foundMovie = await Movie.findByIdAndUpdate(movieId, update, {
-//     new: true,
-//   })
+//findByTitle
 
-//   if (!foundMovie) {
-//     throw new NotFoundError(`Movie ${movieId} not found`)
-//   }
+// update (mainly for borrowedId, borrowDate, returnDate??)
+const update = async (
+  bookId: string,
+  update: Partial<BookDocument>
+): Promise<BookDocument | null> => {
+  const foundBook = await Book.findByIdAndUpdate(bookId, update, {
+    new: true,
+  })
 
-//   return foundMovie
-// }
+  if (!foundBook) {
+    throw new NotFoundError(`Book ${bookId} not found`)
+  }
 
-// const deleteMovie = async (movieId: string): Promise<MovieDocument | null> => {
-//   const foundMovie = Movie.findByIdAndDelete(movieId)
+  return foundBook
+}
 
-//   if (!foundMovie) {
-//     throw new NotFoundError(`Movie ${movieId} not found`)
-//   }
+// delete book (mainly for missing book?)
+const deleteBook = async (bookId: string): Promise<BookDocument | null> => {
+  const foundBook = Book.findByIdAndDelete(bookId)
 
-//   return foundMovie
-// }
+  if (!foundBook) {
+    throw new NotFoundError(`Book ${bookId} not found`)
+  }
+
+  return foundBook
+}
 
 export default {
   create,
   findAll,
-  // findById,
-  // update,
-  // deleteMovie,
+  findById,
+  update,
+  deleteBook,
 }

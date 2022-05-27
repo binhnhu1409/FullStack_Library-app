@@ -62,13 +62,68 @@ export const createBook = async (
 }
 
 // GET /books
-export const findAll = async (
+export const findAllBooks = async (
   req: Request,
   res: Response,
   next: NextFunction
 ) => {
   try {
     res.json(await BookService.findAll())
+  } catch (error) {
+    if (error instanceof Error && error.name == 'ValidationError') {
+      next(new BadRequestError('Invalid Request', error))
+    } else {
+      next(error)
+    }
+  }
+}
+
+// GET /books/:bookId
+export const findBookById = async (
+  req: Request,
+  res: Response,
+  next: NextFunction
+) => {
+  try {
+    res.json(await BookService.findById(req.params.bookId))
+  } catch (error) {
+    if (error instanceof Error && error.name == 'ValidationError') {
+      next(new BadRequestError('Invalid Request', error))
+    } else {
+      next(error)
+    }
+  }
+}
+
+// PUT /books/:bookId
+export const updateBook = async (
+  req: Request,
+  res: Response,
+  next: NextFunction
+) => {
+  try {
+    const update = req.body
+    const bookId = req.params.bookId
+    const updatedBook = await BookService.update(bookId, update)
+    res.json(updatedBook)
+  } catch (error) {
+    if (error instanceof Error && error.name == 'ValidationError') {
+      next(new BadRequestError('Invalid Request', error))
+    } else {
+      next(error)
+    }
+  }
+}
+
+// DELETE /books/:bookId
+export const deleteBookById = async (
+  req: Request,
+  res: Response,
+  next: NextFunction
+) => {
+  try {
+    await BookService.deleteBook(req.params.bookId)
+    res.status(204).end()
   } catch (error) {
     if (error instanceof Error && error.name == 'ValidationError') {
       next(new BadRequestError('Invalid Request', error))

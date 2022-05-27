@@ -1,11 +1,20 @@
 import express from 'express'
 
-import { createBook, findAll } from '../controllers/book'
+import {
+  createBook,
+  findAllBooks,
+  findBookById,
+  updateBook,
+  deleteBookById,
+} from '../controllers/book'
 
 const router = express.Router()
 
 // Every path we define here will get /api/v1/books prefix
 router.post('/', createBook)
-router.get('/', findAll)
+router.get('/', findAllBooks)
+router.get('/:bookId', findBookById)
+router.put('/:bookId', updateBook)
+router.delete('/:bookId', deleteBookById)
 
 export default router
