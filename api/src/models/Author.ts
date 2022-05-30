@@ -1,4 +1,4 @@
-import mongoose, { Document } from 'mongoose'
+import mongoose, { Document, Schema } from 'mongoose'
 
 export type AuthorDocument = Document & {
   firstName: string
@@ -23,9 +23,12 @@ const authorSchema = new mongoose.Schema({
   biography: {
     type: String,
   },
-  books: {
-    type: [String],
-  },
+  books: [
+    {
+      type: Schema.Types.ObjectId,
+      ref: 'Book',
+    },
+  ],
 })
 
 export default mongoose.model<AuthorDocument>('Author', authorSchema)

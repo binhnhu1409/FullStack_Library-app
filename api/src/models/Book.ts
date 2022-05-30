@@ -1,4 +1,4 @@
-import mongoose, { Document } from 'mongoose'
+import mongoose, { Document, Schema } from 'mongoose'
 
 export enum Status {
   Available = 'available',
@@ -42,10 +42,13 @@ const bookSchema = new mongoose.Schema({
     type: Date,
     required: true,
   },
-  authors: {
-    type: [String],
-    required: true,
-  },
+  authors: [
+    {
+      type: Schema.Types.ObjectId,
+      ref: 'Author',
+      required: true,
+    },
+  ],
   status: {
     type: String,
     enum: Status,
