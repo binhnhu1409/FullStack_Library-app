@@ -1,4 +1,4 @@
-import mongoose, { Document } from 'mongoose'
+import mongoose, { Document, Schema } from 'mongoose'
 
 export enum Role {
   User = 'user',
@@ -12,6 +12,7 @@ export type UserDocument = Document & {
   password: string
   role: string
   joinDate: Date
+  borrowedBooks: string[]
 }
 
 const userSchema = new mongoose.Schema({
@@ -43,6 +44,12 @@ const userSchema = new mongoose.Schema({
     type: Date,
     required: true,
   },
+  borrowedBooks: [
+    {
+      type: Schema.Types.ObjectId,
+      ref: 'Book',
+    },
+  ],
 })
 
 export default mongoose.model<UserDocument>('User', userSchema)

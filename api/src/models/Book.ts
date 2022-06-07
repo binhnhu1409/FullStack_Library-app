@@ -9,8 +9,10 @@ export type BookDocument = Document & {
   isbn: string
   title: string
   description: string
+  categories: string
   publisher: string
   publishedDate: Date
+  cover: string
   authors: string[]
   status: Status
   borrowerId: string
@@ -34,12 +36,20 @@ const bookSchema = new mongoose.Schema({
     type: String,
     required: true,
   },
+  categories: {
+    type: String,
+    required: true,
+  },
   publisher: {
     type: String,
     required: true,
   },
   publishedDate: {
     type: Date,
+    required: true,
+  },
+  cover: {
+    type: String,
     required: true,
   },
   authors: [
@@ -56,7 +66,8 @@ const bookSchema = new mongoose.Schema({
     required: true,
   },
   borrowerId: {
-    type: String,
+    type: Schema.Types.ObjectId,
+    ref: 'User',
   },
   borrowDate: {
     type: Date,

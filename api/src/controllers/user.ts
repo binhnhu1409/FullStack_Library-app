@@ -11,7 +11,15 @@ export const createUser = async (
   next: NextFunction
 ) => {
   try {
-    const { firstName, lastName, email, password, role, joinDate } = req.body
+    const {
+      firstName,
+      lastName,
+      email,
+      password,
+      role,
+      joinDate,
+      borrowedBooks,
+    } = req.body
 
     const user = new User({
       firstName,
@@ -20,6 +28,7 @@ export const createUser = async (
       password,
       role,
       joinDate,
+      borrowedBooks,
     })
 
     // const user = new User({
