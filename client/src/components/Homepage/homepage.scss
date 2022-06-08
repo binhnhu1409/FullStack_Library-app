@@ -2,15 +2,20 @@
 @import '../../SASS/variables';
 
 .home {
+  display: grid; 
+  grid-template-columns: 1fr 1fr; 
+  grid-gap: 20px;  
 
-  &__article{
-    width: 50%;
+  &__item{
+    margin: 10px; 
   }
+
   &__phrase {
     margin: 130px 0 0 60px;
   }
+  
   &__hero{
-    width: 50%;
+    width: 700px;
   }
 
 }
