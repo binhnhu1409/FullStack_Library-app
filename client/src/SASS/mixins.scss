@@ -1,0 +1,57 @@
+// This partial can hold any block of code that is repeatable.
+
+//Mixin for screen sizes:
+@mixin xsMaxPoint {
+  @media screen and (max-width: $screen-xs) {
+    @content;
+  }
+}
+
+@mixin smMaxPoint {
+  @media screen and (max-width: $screen-sm) {
+    @content;
+  }
+}
+
+@mixin mdMaxPoint {
+  @media screen and (max-width: $screen-md) {
+    @content;
+  }
+}
+
+@mixin lgMaxPoint {
+  @media screen and (max-width: $screen-lg) {
+    @content;
+  }
+}
+
+@mixin xlMaxPoint {
+  @media screen and (max-width: $screen-xl) {
+    @content;
+  }
+}
+
+@mixin xxlMaxPoint {
+  @media screen and (max-width: $screen-xxl) {
+    @content;
+  }
+}
+
+//Mixins for font, size etc
+// @mixin iconNoBorder {
+//   border: none;
+//   background-color: inherit;
+// }
+
+// @mixin noneBulletFlex {
+//   list-style: none;
+//   display: flex;
+//   padding: 0;
+// }
+
+// //Mixin for position
+// @mixin fixedTopPage {
+//   position: fixed;
+//   top: 0;
+//   left: 0;  
+// }
