@@ -11,7 +11,7 @@ import './header.scss'
 const Header = () => {
 
   return (
-    <header id='homepage'>
+    <header>
       <nav className="navbar">
 
         {/* logo on the left  */}

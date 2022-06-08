@@ -1,0 +1,16 @@
+@import '../../SASS/mixins';
+@import '../../SASS/variables';
+
+.home {
+
+  &__article{
+    width: 50%;
+  }
+  &__phrase {
+    margin: 130px 0 0 60px;
+  }
+  &__hero{
+    width: 50%;
+  }
+
+}
