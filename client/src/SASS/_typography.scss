@@ -1,5 +1,5 @@
 // This partial holds major typography element styles such as h1-h6, p, and global classes or ids.
-@import url('https://fonts.googleapis.com/css2?family=Indie+Flower&family=Lobster&family=Open+Sans:wght@300&family=Roboto&display=swap');
+@import url('https://fonts.googleapis.com/css2?family=Indie+Flower&family=Lobster&family=Open+Sans:wght@300&family=Titillium+Web:wght@200&display=swap');
 
 @import './variables';
 @import './mixins';
@@ -7,7 +7,6 @@
 h1 {
   font-family: 'Lobster', cursive;
   font-size: 45px;
-  color: $color-grey;
 }
 
 h2 {
@@ -17,7 +16,6 @@ h2 {
 
 p {
   font-family: 'Open Sans', sans-serif;
-  color: $color-white;
 }
 
 span {

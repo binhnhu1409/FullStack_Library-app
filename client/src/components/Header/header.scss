@@ -1,0 +1,55 @@
+@import '../../SASS/mixins';
+@import '../../SASS/variables';
+@import '../../SASS/animation';
+
+.navbar {
+
+  &__logo {
+    font-family: 'Indie Flower', cursive;
+    font-size: 36px;
+    font-weight: bold;
+    border: 1px dashed $color-text;
+    position: absolute;
+    top: 30px;
+    left: 5%;
+  }
+
+  &__menu {
+    @include noneBulletFlex;
+    text-align: center;
+  }
+
+  &__item{
+    font-family: 'Titillium Web', sans-serif;
+    font-size: 20px;
+    font-weight: bold;
+    top: 30px;
+    display: inline-block;
+    margin: 30px;
+  }
+
+  &__link:hover{
+    animation: bigger 2s; 
+  }
+
+  &__icon {
+    @include iconNoBorder;
+    color: $color-text;
+    font-size: 36px;
+    position: absolute;
+    right: 5%;
+    top: 45px;
+  }
+
+  &__favorite{
+    background-color: $color-text;
+    position: absolute;
+    z-index: 1;
+    font-size: 16px;
+    top: -10px;
+    left: 30px;
+    width: 20px;
+    height: 20px;
+    border-radius: 50%;
+  }
+}

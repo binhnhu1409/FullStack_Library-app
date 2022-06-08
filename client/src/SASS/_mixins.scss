@@ -38,20 +38,20 @@
 }
 
 //Mixins for font, size etc
-// @mixin iconNoBorder {
-//   border: none;
-//   background-color: inherit;
-// }
+@mixin iconNoBorder {
+  border: none;
+  background-color: inherit;
+}
 
-// @mixin noneBulletFlex {
-//   list-style: none;
-//   display: flex;
-//   padding: 0;
-// }
+@mixin noneBulletFlex {
+  list-style: none;
+  // display: flex;
+  padding: 0;
+}
 
-// //Mixin for position
-// @mixin fixedTopPage {
-//   position: fixed;
-//   top: 0;
-//   left: 0;  
-// }
+//Mixin for position
+@mixin fixedTopPage {
+  position: fixed;
+  top: 0;
+  left: 0;  
+}
