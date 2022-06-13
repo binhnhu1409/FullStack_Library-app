@@ -30,6 +30,9 @@ const Header = () => {
           <li className="navbar__item">
             <a className='navbar__link' href='#genres'>Browse Categories</a>
           </li>
+          <li className="navbar__item">
+            <a className='navbar__link' href='#dashboard'>Dashboard</a>
+          </li>
         </ul>
 
         {/* favorite cart on the right */}
