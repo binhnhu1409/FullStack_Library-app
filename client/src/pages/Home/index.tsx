@@ -4,10 +4,11 @@ import { useDispatch, useSelector } from 'react-redux'
 import { AppState } from '../../types'
 import { fetchAllBooks } from '../../redux/actions'
 
-import Books from '../../components/Books'
+import Homepage from '../../components/Homepage'
+import AllBooks from '../../components/AllBooks'
 
 export default function Home() {
-  const dispatch =  useDispatch()
+  const dispatch =  useDispatch<any>()
   const Books = useSelector(
     (state: AppState) => state.books.books
   )
@@ -19,7 +20,8 @@ export default function Home() {
 
   return (
     <>
-      <Books />
+      <Homepage />
+      <AllBooks />
     </>
   )
 }

@@ -1,16 +1,24 @@
 import React from 'react';
 import ReactDOM from 'react-dom';
+import { Provider } from 'react-redux'
+import { BrowserRouter as Router } from 'react-router-dom'
 
 import './SASS/_global.scss'
 import App from './App';
+import configureStore from './redux/store';
 
+const store = configureStore()
 
-ReactDOM.render(
-  <React.StrictMode>
-    <App />
-  </React.StrictMode>,
-  document.getElementById('root')
-);
+const WithProvider = () => (
+  <Provider store={store}>
+    <Router>
+      <App />
+    </Router>
+  </Provider>
+)
+
+ReactDOM.render(<WithProvider />, document.getElementById('root'))
+
 
 // If you want to start measuring performance in your app, pass a function
 // to log results (for example: reportWebVitals(console.log))

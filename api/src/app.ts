@@ -1,6 +1,7 @@
 import express from 'express'
 // import lusca from 'lusca' will be used later
 import dotenv from 'dotenv'
+import cors from 'cors'
 
 import movieRouter from './routers/movie'
 import bookRouter from './routers/book'
@@ -18,6 +19,7 @@ app.set('port', process.env.PORT || 3000)
 // Global middleware
 app.use(apiContentType)
 app.use(express.json())
+app.use(cors())
 
 // Set up routers
 app.use('/api/v1/movies', movieRouter)

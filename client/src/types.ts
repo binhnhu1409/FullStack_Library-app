@@ -3,14 +3,6 @@ export const GET_ALL_BOOKS_REQUEST = 'GET_ALL_BOOKS_REQUEST'
 export const GET_ALL_BOOKS_FAILURE = 'GET_ALL_BOOKS_FAILURE'
 export const GET_ALL_BOOKS_SUCCESS = 'GET_ALL_BOOKS_SUCCESS'
 
-
-
-// For the app
-export type AppState = {
-  books: BooksState
-  authors: AuthorsState
-}
-
 // AUTHORS
 export type AuthorType = {
   _id: string
@@ -79,3 +71,11 @@ export type BookActions =
   |GetAllBooksRequestAction
   |GetAllBooksFailureAction
   |GetAllBooksSuccessAction
+
+
+
+  // For the app
+export type AppState = {
+  books: BooksState
+  authors: AuthorsState
+}

@@ -1,5 +1,5 @@
-import axios from "axios";
-import { Dispatch } from "redux";
+import axios from 'axios'
+import { Dispatch } from 'redux'
 
 import {
   GET_ALL_BOOKS_REQUEST,
