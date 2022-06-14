@@ -10,6 +10,7 @@ export default function books(
   state: BooksState = {
     isLoading: false,
     books: [],
+    error: '',
   },
   action: BookActions
 ): BooksState {
@@ -25,6 +26,7 @@ export default function books(
       return {
         ...state,
         isLoading: false,
+        error: action.payload.errorMsg,
       }
     }
 

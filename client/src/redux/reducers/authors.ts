@@ -10,6 +10,7 @@ export default function authors(
   state: AuthorsState = {
     isLoading: false,
     authors: [],
+    error: ''
   },
   action: AuthorActions
 ): AuthorsState {

@@ -28,6 +28,7 @@ export type AuthorProps = {
 export type AuthorsState = {
   isLoading: boolean
   authors: AuthorType[]
+  error: any
 }
 
 export type GetAllAuthorsRequestAction = {
@@ -82,6 +83,7 @@ export type BookAuthorProps = {
 export type BooksState = {
   isLoading: boolean
   books: BookType[]
+  error: any
 }
 
 export type GetAllBooksRequestAction = {
@@ -116,9 +118,14 @@ export type EditBookFailureAction = {
 export type EditBookSuccessAction = {
   type: typeof EDIT_BOOK_SUCCESS
   payload: {
-    book: any[]
   }
 }
+
+export type EditBookState = {
+  isLoading: boolean;
+  isEdited: boolean;
+  error: any
+};
 
 
 // Actions (for reducer)
@@ -126,6 +133,8 @@ export type BookActions =
   |GetAllBooksRequestAction
   |GetAllBooksFailureAction
   |GetAllBooksSuccessAction
+
+export type EditBookActions =
   |EditBookRequestAction
   |EditBookFailureAction
   |EditBookSuccessAction
@@ -141,4 +150,5 @@ export type AuthorActions =
 export type AppState = {
   books: BooksState
   authors: AuthorsState
+  editBook: EditBookState
 }

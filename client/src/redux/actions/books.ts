@@ -5,12 +5,10 @@ import {
   GET_ALL_BOOKS_REQUEST,
   GET_ALL_BOOKS_FAILURE,
   GET_ALL_BOOKS_SUCCESS,
-  EDIT_BOOK_REQUEST,
-  EDIT_BOOK_FAILURE,
-  EDIT_BOOK_SUCCESS,
-  BookActions
+  BookActions,
 } from '../../types'
 
+//Get all books
 export function GetAllBooksRequestAction(): BookActions {
   return {
     type: GET_ALL_BOOKS_REQUEST,
@@ -50,3 +48,4 @@ export function fetchAllBooks() {
     }
   }
 }
+

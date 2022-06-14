@@ -8,10 +8,17 @@ const initState: AppState = {
   books: {
     isLoading: false,
     books: [],
+    error: null,
   },
   authors: {
     isLoading: false,
     authors: [],
+    error: null,
+  },
+  editBook: {
+    isLoading: false,
+    isEdited: false,
+    error: null,
   }
 }
 

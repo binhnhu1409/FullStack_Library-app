@@ -1,0 +1,32 @@
+@import '../../SASS/mixins';
+@import '../../SASS/variables';
+@import '../../SASS/animation';
+
+.formContainer{
+  text-align: center;
+}
+
+.form{
+  
+  &__input{
+    margin: 30px;
+    width: 50%;
+    background-color: transparent;
+    font-size: 18px;
+    color: $color-text;
+    border: 1px solid transparent;
+    border-bottom: 1px solid $color-light;
+    cursor: text;
+  }
+
+  &__input:hover,
+  &__input:focus{
+    outline: 0;
+    border-bottom: 1px solid $color-text;
+    animation: bigger 1.5s; 
+  }
+
+  &__title {
+    margin-top: 50px;
+  }
+}
