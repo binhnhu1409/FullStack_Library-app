@@ -25,7 +25,7 @@ const Header = () => {
             <a className='navbar__link' href='#login'>Login</a>
           </li>
           <li className="navbar__item">
-            <a className='navbar__link' href='#newBooks'>New Books</a>
+            <a className='navbar__link' href='#allBooks'>Browse Books</a>
           </li>
           <li className="navbar__item">
             <a className='navbar__link' href='#genres'>Browse Categories</a>

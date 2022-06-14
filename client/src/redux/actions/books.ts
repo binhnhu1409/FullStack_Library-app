@@ -5,6 +5,9 @@ import {
   GET_ALL_BOOKS_REQUEST,
   GET_ALL_BOOKS_FAILURE,
   GET_ALL_BOOKS_SUCCESS,
+  EDIT_BOOK_REQUEST,
+  EDIT_BOOK_FAILURE,
+  EDIT_BOOK_SUCCESS,
   BookActions
 } from '../../types'
 
@@ -38,7 +41,6 @@ export function fetchAllBooks() {
     try {
       const res = await axios.get('http://localhost:5000/api/v1/books')
       const booksData = res.data
-      console.log ('booksData from actions', booksData)
       return dispatch(GetAllBooksSuccessAction(booksData))
     } catch (error : any) {
       if (error.response.status === 404) {

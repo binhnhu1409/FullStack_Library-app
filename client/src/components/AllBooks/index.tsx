@@ -9,14 +9,22 @@ const AllBooks = () => {
   const { isLoading, books } = useSelector(
     (state: AppState) => state.books
   )
+
+  // const { authors } = useSelector(
+  //   (state: AppState) => state.authors
+  // )
+  
   return (
     <>
       {isLoading && <p>Loading...</p>}
       {!isLoading && (
-        <section className='grid'>
+        <section className='grid' id='#allbooks'>
           {books.map((books) => (
-            <BookCard key={books._id} book={books}/>         
+            <>
+              <BookCard key={books._id} book={books} /> 
+            </>         
           ))}
+          
         </section>
       )} 
     </>

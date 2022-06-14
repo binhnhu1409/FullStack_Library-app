@@ -13,8 +13,6 @@ export default function books(
   },
   action: BookActions
 ): BooksState {
-  console.log('action from books reducer', action)
-  console.log('state from books reducer', books)
   switch (action.type) {
     case GET_ALL_BOOKS_REQUEST: {
       return {
@@ -31,7 +29,6 @@ export default function books(
     }
 
     case GET_ALL_BOOKS_SUCCESS: {
-      console.log('action from success books reducer', action)
       const allBooks = action.payload.books.map((books) => ({
         _id: books._id, 
         isbn: books.isbn,
