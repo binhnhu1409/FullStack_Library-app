@@ -49,6 +49,13 @@
   padding: 0;
 }
 
+@mixin btnText {
+  font-family: 'Roboto', sans-serif;
+  text-transform: uppercase;
+  font-weight: bold;
+  font-size: 20px;
+}
+
 //Mixin for position
 @mixin fixedTopPage {
   position: fixed;

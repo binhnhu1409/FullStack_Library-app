@@ -1,0 +1,15 @@
+@import '../../SASS/mixins';
+@import '../../SASS/variables';
+
+.footer {
+  text-align: center;
+
+  &__contact{
+    padding: 10px;
+  }
+
+  &__icon {
+    font-size: 26px;
+    padding: 20px;
+  }
+}

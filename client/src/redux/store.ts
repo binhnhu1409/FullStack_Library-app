@@ -19,10 +19,15 @@ const initState: AppState = {
     isLoading: false,
     isEdited: false,
     error: null,
-  }
+  },
+  getBookById: {
+    isLoading: false,
+    error: null,
+    book: null,
+  },
 }
 
-// export default function makeStore(initialState = initState) {
+// export default function configureStore(initialState = initState) {
 //   const middlewares = [thunk];
 //   let composeEnhancers = compose;
 

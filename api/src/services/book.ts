@@ -14,8 +14,8 @@ const findAll = async (): Promise<BookDocument[]> => {
 // findById
 const findById = async (bookId: string): Promise<BookDocument> => {
   console.log('run:')
-  const foundBook = await Book.findOne({ _id: bookId })
-  console.log('foundBOok here:', foundBook)
+  const foundBook = await Book.findOne({ _id: bookId }).populate('authors')
+
   if (!foundBook) {
     throw new NotFoundError(`Book ${bookId} not found`)
   }

@@ -13,6 +13,27 @@
   &__phrase {
     margin: 130px 0 0 60px;
   }
+
+  &__btn {
+    background-color: $color-text;
+    color: $color-background;
+    @include btnText;
+    margin: 0 0 10px 60px;
+    transition: all 0.5s;
+    padding: 0.8em;
+    border-radius: 0.5em;
+    width: auto;
+    position: relative;
+
+    &:hover {
+      background: $color-light;
+      transition: all 0.5s;
+      padding: 1em 1.2em;
+      &::after {
+          transition: all 0.5s;
+      }
+    }
+  }
   
   &__hero{
     width: 700px;

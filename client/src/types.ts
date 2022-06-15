@@ -7,6 +7,10 @@ export const EDIT_BOOK_REQUEST = 'EDIT_BOOK_REQUEST'
 export const EDIT_BOOK_SUCCESS = 'EDIT_BOOK_SUCCESS'
 export const EDIT_BOOK_FAILURE = 'EDIT_BOOK_FAILURE'
 
+export const GET_BOOK_BY_ID_REQUEST = 'GET_BOOK_BY_ID_REQUEST'
+export const GET_BOOK_BY_ID_SUCCESS = 'GET_BOOK_BY_ID_SUCCESS'
+export const GET_BOOK_BY_ID_FAILURE = 'GET_BOOK_BY_ID_FAILURE'
+
 //Action types for AUTHORS
 export const GET_ALL_AUTHORS_REQUEST = 'GET_ALL_AUTHORS_REQUEST'
 export const GET_ALL_AUTHORS_FAILURE = 'GET_ALL_AUTHORS_FAILURE'
@@ -104,6 +108,7 @@ export type GetAllBooksSuccessAction = {
   }
 }
 
+// Edit book
 export type EditBookRequestAction = {
   type: typeof EDIT_BOOK_REQUEST
 }
@@ -127,6 +132,31 @@ export type EditBookState = {
   error: any
 };
 
+//Get One Book
+export type GetBookByIdRequestAction = {
+  type: typeof GET_BOOK_BY_ID_REQUEST
+}
+
+export type GetBookByIdFailureAction = {
+  type: typeof GET_BOOK_BY_ID_FAILURE
+  payload: {
+    errorMsg: string
+  }
+}
+
+export type GetBookByIdSuccessAction = {
+  type: typeof GET_BOOK_BY_ID_SUCCESS
+  payload: {
+    book: BookType
+  }
+}
+
+export type GetBookByIdState = {
+  isLoading: boolean;
+  error: any;
+  book: BookType | null;
+};
+
 
 // Actions (for reducer)
 export type BookActions =
@@ -138,6 +168,11 @@ export type EditBookActions =
   |EditBookRequestAction
   |EditBookFailureAction
   |EditBookSuccessAction
+
+export type GetBookByIdActions =
+  |GetBookByIdRequestAction
+  |GetBookByIdFailureAction
+  |GetBookByIdSuccessAction
 
 
 export type AuthorActions =
@@ -151,4 +186,5 @@ export type AppState = {
   books: BooksState
   authors: AuthorsState
   editBook: EditBookState
+  getBookById: GetBookByIdState
 }

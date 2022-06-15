@@ -1,3 +1,40 @@
 @import '../../SASS/mixins';
 @import '../../SASS/variables';
 
+.onebook{
+  display: grid; 
+  grid-template-columns: 1fr 2fr; 
+  grid-gap: 20px;  
+  margin-top: 3em;
+
+  &__item{
+    margin: 10px; 
+  }
+
+  &__img{
+    width: 60%;
+    position: relative;
+    left: 8em;
+  }
+
+  &__tag{
+    position: relative;
+    left: -40px
+  }
+
+  &__list{
+    list-style: none;
+    display: inline;
+    float: left;
+    margin-right: 20px;
+    cursor: default;
+  }
+
+  &__status{
+    margin-bottom: 3em;
+    border: 1px solid;
+    padding: 0.5em;
+    border-radius: 0.5em;
+    width: fit-content;
+  }
+}
