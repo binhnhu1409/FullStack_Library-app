@@ -5,6 +5,7 @@ import {
   EDIT_BOOK_REQUEST,
   EDIT_BOOK_FAILURE,
   EDIT_BOOK_SUCCESS,
+  EDIT_BOOK_RESET,
   EditBookActions,
   BookType
 } from '../../types'
@@ -32,6 +33,13 @@ export function EditBookSuccessAction(): EditBookActions {
     }
   }
 }
+
+export function EditBookResetAction(): EditBookActions {
+  return {
+    type: EDIT_BOOK_RESET,
+  }
+}
+
 
 export function editBook(
   bookId: string,

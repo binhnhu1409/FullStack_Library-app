@@ -4,7 +4,7 @@ import { useDispatch } from 'react-redux'
 import { AiOutlineEdit } from 'react-icons/ai'
 import { MdOutlineDeleteForever } from 'react-icons/md'
 
-import { editBook, getBookById } from '../../redux/actions'
+import { editBook } from '../../redux/actions'
 import { BookProps } from '../../types'
 import './bookcard.scss'
 
@@ -33,9 +33,8 @@ const BookCard = ({ book }: BookProps ) => {
         <span className='info__status'>{book.status}</span>
         <button
             className="info__button"
-            onClick={() => dispatch(editBook(book._id, book))}
           >
-            <Link to={`books/${book._id}/edit`}>
+            <Link to={`books/edit/${book._id}`}>
               <AiOutlineEdit className="info__icon" />
             </Link>
         </button>

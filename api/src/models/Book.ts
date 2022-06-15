@@ -39,6 +39,7 @@ const bookSchema = new mongoose.Schema({
   categories: {
     type: String,
     required: true,
+    default: 'Others',
   },
   publisher: {
     type: String,
@@ -70,9 +71,11 @@ const bookSchema = new mongoose.Schema({
   },
   borrowDate: {
     type: Date,
+    default: 'null',
   },
   returnDate: {
     type: Date,
+    default: 'null',
   },
 })
 

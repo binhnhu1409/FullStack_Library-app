@@ -2,30 +2,43 @@
 @import '../../SASS/variables';
 @import '../../SASS/animation';
 
-.formContainer{
-  text-align: center;
-}
 
 .form{
-  
-  &__input{
-    margin: 30px;
-    width: 50%;
-    background-color: transparent;
-    font-size: 18px;
-    color: $color-text;
-    border: 1px solid transparent;
-    border-bottom: 1px solid $color-light;
-    cursor: text;
+  @include center;
+  width: 50%;
+  background-color: rgba(255,255,255,0.13);
+  border-radius: 10px;
+  backdrop-filter: blur(10px);
+  padding: 2.5em;
+  margin-bottom: 30px;
+
+  &__label{
+    display: block;
+    margin-top: 26px;
+    font-size: 16px;
+    letter-spacing: 0.05em;
   }
 
-  &__input:hover,
-  &__input:focus{
-    outline: 0;
-    border-bottom: 1px solid $color-text;
+  &__input{
+    height: 40px;
+    width: 90%;
+    background-color: $color-text;
+    color: $color-background;
+    opacity: 0.75;
+    border-radius: 3em;
+    padding: 0 20px;
+    margin-top: 5px;
+    font-size: 18px;
   }
 
   &__title {
     margin-top: 50px;
+    text-align: center;
+  }
+
+  &__btn{
+    position: relative;
+    margin-top: 20px;
+    margin-left: 43%;
   }
 }

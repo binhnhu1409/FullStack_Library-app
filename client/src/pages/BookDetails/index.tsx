@@ -1,6 +1,6 @@
 import React from 'react'
 import { useDispatch, useSelector } from 'react-redux';
-import { useParams, Link } from 'react-router-dom';
+import { useParams, useNavigate } from 'react-router-dom';
 import dayjs from 'dayjs'
 
 import './bookdetails.scss'
@@ -10,7 +10,9 @@ import { getBookById } from '../../redux/actions'
 export default function BookDetails() {
 
   const dispatch = useDispatch<any>();
+  const navigate = useNavigate();
   const { bookId } = useParams<{ bookId: string }>();
+
   const thisBook = useSelector(
     (state: AppState) => state.getBookById.book
   )
@@ -19,6 +21,10 @@ export default function BookDetails() {
     dispatch(getBookById(bookId))
     return <p>Loading...</p>
   } 
+
+  const navigateToEditPage = () => {
+    navigate(`/books/edit/${bookId}`);
+  };
 
   return (
     <>
@@ -51,10 +57,10 @@ export default function BookDetails() {
           </ul>
           
           <div>
-            <Link to={`books/${bookId}/edit`}>
-              <button className='home__btn'>Edit book</button>
-            </Link>
-            
+            <button className='home__btn' onClick={navigateToEditPage}>
+              Edit book
+            </button>
+
             <button className='home__btn'>
               Delete book
             </button>

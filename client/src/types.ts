@@ -6,6 +6,7 @@ export const GET_ALL_BOOKS_SUCCESS = 'GET_ALL_BOOKS_SUCCESS'
 export const EDIT_BOOK_REQUEST = 'EDIT_BOOK_REQUEST'
 export const EDIT_BOOK_SUCCESS = 'EDIT_BOOK_SUCCESS'
 export const EDIT_BOOK_FAILURE = 'EDIT_BOOK_FAILURE'
+export const EDIT_BOOK_RESET = 'EDIT_BOOK_RESET'
 
 export const GET_BOOK_BY_ID_REQUEST = 'GET_BOOK_BY_ID_REQUEST'
 export const GET_BOOK_BY_ID_SUCCESS = 'GET_BOOK_BY_ID_SUCCESS'
@@ -66,7 +67,7 @@ export type BookType = {
   description: string
   categories: string
   publisher: string
-  publishedDate: Date
+  publishedDate?: Date
   cover: string
   authors: AuthorType[]
   status: Status
@@ -126,6 +127,10 @@ export type EditBookSuccessAction = {
   }
 }
 
+export type EditBookResetAction = {
+  type: typeof EDIT_BOOK_RESET
+}
+
 export type EditBookState = {
   isLoading: boolean;
   isEdited: boolean;
@@ -168,6 +173,7 @@ export type EditBookActions =
   |EditBookRequestAction
   |EditBookFailureAction
   |EditBookSuccessAction
+  |EditBookResetAction
 
 export type GetBookByIdActions =
   |GetBookByIdRequestAction

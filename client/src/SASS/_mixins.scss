@@ -63,6 +63,11 @@
   left: 0;  
 }
 
+@mixin center(){
+  margin-right:auto;
+  margin-left:auto;
+}
+
 //Mixins for buttons
 @mixin smallButtonDark {
   color: $color-text;

@@ -46,7 +46,6 @@ export default function books(
         borrowDate: books.borrowDate,
         returnDate: books.returnDate,
       }) )
-      console.log('allBOoks from success reducers', allBooks)
       return {
         ...state,
         isLoading: false,

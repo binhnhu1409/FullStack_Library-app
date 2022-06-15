@@ -2,6 +2,7 @@ import {
   EDIT_BOOK_REQUEST,
   EDIT_BOOK_FAILURE,
   EDIT_BOOK_SUCCESS,
+  EDIT_BOOK_RESET,
   EditBookActions,
   EditBookState
 } from '../../types'
@@ -35,6 +36,13 @@ export default function books(
         ...state,
         isLoading: false,
         isEdited: true,
+      }
+    }
+
+    case EDIT_BOOK_RESET: {
+      return {
+        ...state,
+        isEdited: false,
       }
     }
 
