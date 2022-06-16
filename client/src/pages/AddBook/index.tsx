@@ -1,35 +1,27 @@
 import React, {useState, useEffect} from 'react'
 import { useDispatch, useSelector } from 'react-redux';
-import { useParams, useNavigate } from 'react-router-dom';
+import { useNavigate } from 'react-router-dom';
 
-import './editbook.scss'
 import { AppState, AuthorType, BookType } from '../../types';
-import { getBookById, editBook, EditBookResetAction} from '../../redux/actions'
+import { addBook, AddBookResetAction } from '../../redux/actions'
 
 export default function EditBook() {
   const dispatch = useDispatch<any>();
   const navigate = useNavigate()
-  const { bookId } = useParams<{ bookId: any }>();
-
-  const thisBook = useSelector(
-    (state: AppState) => state.getBookById.book
-  )
   
-  const{isLoading, isEdited} = useSelector(
-    (state: AppState) => state.editBook
+  const{isLoading, isAdded} = useSelector(
+    (state: AppState) => state.addBook
   )
 
   // state of each input
-  const [isbn, setIsbn] = useState(thisBook?.isbn);
-  const [title, setTitle] = useState(thisBook?.title);
-  const [description, setDescription] = useState(thisBook?.description);
-  const [authors] = useState<AuthorType[]>(thisBook?.authors || []);
-  const [publisher, setPublisher] = useState(thisBook?.publisher);
-  const [publishedDate] = useState(
-    new Date(thisBook?.publishedDate || Date.now())
-  );
-  const [categories, setCategories] = useState(thisBook?.categories);
-  const [cover, setCover] = useState(thisBook?.cover);
+  const [isbn, setIsbn] = useState('');
+  const [title, setTitle] = useState('');
+  const [description, setDescription] = useState('');
+  const [authors] = useState<AuthorType[]>([]);
+  const [publisher, setPublisher] = useState('');
+  const [publishedDate] = useState();
+  const [categories, setCategories] = useState('');
+  const [cover, setCover] = useState('');
   
   // Handler when there is change on any input
   const isbnChangeHandler = (e: React.FormEvent<HTMLInputElement>) => {
@@ -62,12 +54,25 @@ export default function EditBook() {
     if (isLoading) {
       return;
     }
+    if (!isbn) {
+      alert('Please fill in the ISBN field!');
+      return;
+    }
+    if (!title) {
+      alert('Please fill in the title field!');
+      return;
+    }
+    if (!description) {
+      alert('Please fill in the description field!');
+      return;
+    }
+    if (!authors) {
+      alert('Please fill in the authors field!');
+      return;
+    }
+  
     //how to validate date to the right format??
-    // if (???) {
-    //   alert('Please enter published date in format of MM/DD/YYY');
-    //   return;
-    // }
-
+  
     const bookData: Partial<BookType> = {
       isbn: isbn,
       title: title,
@@ -77,74 +82,66 @@ export default function EditBook() {
       publishedDate: publishedDate,
       categories: categories,
       cover: cover
-    };
-
-    if(bookId) {
-      dispatch(editBook(bookId, bookData))
     }
+
+    dispatch(addBook( bookData))
   }
 
-  //Alert when editting book success
+  //Alert when add book success
   useEffect(() => {
-    if (isEdited) {
-      alert('You have updated book successfully!')
-
-      if (bookId) {
-        dispatch(getBookById(bookId));
-      }
-      navigate(`/books/${bookId}`);
-      dispatch(EditBookResetAction());
+    if (isAdded) {
+      alert('You have added book successfully!')
+      navigate(`/`)
+      dispatch(AddBookResetAction())
     }
-  }, [dispatch, navigate, bookId, isEdited]);
-
-  // Condition to dispatch and get the current book
-  if (!thisBook) {
-    dispatch(getBookById(bookId))
-    return <p>Loading...</p>
-  } 
+  }, [dispatch, navigate, isAdded]);
 
   return (
     <div className='formContainer'>
-      <h2 className='form__title'>Edit book form</h2>
+      <h2 className='form__title'>Add book form</h2>
 
       <form className='form' onSubmit={formSubmitHandler}>
-        <label className='form__label' htmlFor='title' >Book title</label>
+        <label className='form__label' htmlFor='title' >Book title *</label>
         <input 
           className='form__input' 
           id='title'
           type="text" 
-          placeholder={`${thisBook.title}`}
+          placeholder='Title...'
+          required
           onChange={titleChangeHandler} />
 
-        <label className='form__label' htmlFor='description'>Description</label>
+        <label className='form__label' htmlFor='description'>Description *</label>
         <input 
           className='form__input' 
           id='description'
           type="text" 
-          placeholder={`${thisBook.description}`}
+          required
+          placeholder="Book's description..."
           onChange={descriptionChangeHandler}/>
 
-        <label className='form__label' htmlFor='isbn'>ISBN</label>
+        <label className='form__label' htmlFor='isbn'>ISBN *</label>
         <input 
           className='form__input' 
           id='isbn'
           type="text" 
+          required
           value={isbn}
-          placeholder={`${thisBook.isbn}`}
+          placeholder='Enter ISBN...'
           onChange={isbnChangeHandler}/>
 
-        <label className='form__label' htmlFor='authors'>Authors</label>
+        <label className='form__label' htmlFor='authors'>Authors *</label>
         <input 
           className='form__input' 
           id='authors'
+          required
           type="text" 
-          placeholder={`${thisBook.authors[0].firstName} ${thisBook.authors[0].lastName}`}/>
+          placeholder='Author...'/>
 
-        <label className='form__label' htmlFor='categories'>Categories</label>
+        <label className='form__label' htmlFor='categories'>Categories *</label>
         <select 
           className='form__input' 
           id='categories'
-          placeholder={`${thisBook.categories}`}
+          required
           onChange={categoriesChangeHandler}>
             <option value='Health/fitness'>Health/fitness</option>
             <option value="Children's">Children's</option>
@@ -156,12 +153,13 @@ export default function EditBook() {
             <option value='Others'>Others</option>
         </select>
 
-        <label className='form__label' htmlFor='cover'>Link to cover</label>
+        <label className='form__label' htmlFor='cover'>Link to cover *</label>
         <input 
           className='form__input' 
           id='cover'
+          required
           type="text" 
-          placeholder={`${thisBook.cover}`}
+          placeholder='Link to cover...'
           onChange={coverChangeHandler}/>
 
         <label className='form__label' htmlFor='publisher'>Publisher</label>
@@ -169,7 +167,7 @@ export default function EditBook() {
           className='form__input' 
           id='publisher'
           type="text" 
-          placeholder={`${thisBook.publisher}`}
+          placeholder='Enter publisher...'
           onChange={publisherChangeHandler}/>
 
         <label className='form__label' htmlFor='publishedDate'>Published date</label>
@@ -180,7 +178,7 @@ export default function EditBook() {
           placeholder='MM/DD/YYYY'/>
 
         <button className='home__btn form__btn' onClick={formSubmitHandler}>
-          Edit
+          Add
         </button>
       </form>
     </div>

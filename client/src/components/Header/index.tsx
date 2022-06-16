@@ -1,12 +1,7 @@
 import React from 'react'
-// import { useSelector } from 'react-redux'
-
-import { BsFillBookmarkHeartFill } from 'react-icons/bs'
+// import { BsFillBookmarkHeartFill } from 'react-icons/bs'
 
 import './header.scss'
-// import { ThemeContext } from '../../context/theme'
-// import { SidebarContext } from '../../context/sidebar'
-// import { AppState } from '../../types'
 
 const Header = () => {
 

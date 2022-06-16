@@ -31,6 +31,11 @@ const initState: AppState = {
     error: null,
     isDeleted: false,
   },
+  addBook: {
+    isLoading: false,
+    error: null,
+    isAdded: false,
+  },
 }
 
 // export default function configureStore(initialState = initState) {

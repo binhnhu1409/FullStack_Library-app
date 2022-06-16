@@ -1,9 +1,15 @@
 import React from 'react';
+import { useNavigate } from 'react-router-dom';
 
 import './homepage.scss';
 import Search from '../Search';
 
 const Homepage = () => {
+  const navigate = useNavigate()
+
+  const navigateToAddPage = () => {
+    navigate(`/books/add`)
+  }
 
   return (
     <section id='homepage' className='home'>
@@ -11,7 +17,7 @@ const Homepage = () => {
         <h1 className='home__phrase'>What book <br/> are you looking for?</h1>
         <Search />
         <div>
-          <button className='home__btn'>
+          <button className='home__btn' onClick={navigateToAddPage}>
             + Add book
           </button>
           <button className='home__btn'>

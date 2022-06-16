@@ -17,6 +17,10 @@ export const DELETE_BOOK_SUCCESS = 'DELETE_BOOK_SUCCESS'
 export const DELETE_BOOK_FAILURE = 'DELETE_BOOK_FAILURE'
 export const DELETE_BOOK_RESET = 'DELETE_BOOK_RESET'
 
+export const ADD_BOOK_REQUEST = 'ADD_BOOK_REQUEST'
+export const ADD_BOOK_SUCCESS = 'ADD_BOOK_SUCCESS'
+export const ADD_BOOK_FAILURE = 'ADD_BOOK_FAILURE'
+export const ADD_BOOK_RESET = 'ADD_BOOK_RESET'
 
 //Action types for AUTHORS
 export const GET_ALL_AUTHORS_REQUEST = 'GET_ALL_AUTHORS_REQUEST'
@@ -167,7 +171,6 @@ export type GetBookByIdActions =
   |GetBookByIdFailureAction
   |GetBookByIdSuccessAction
 
-
 //Delete a Book
 export type DeleteBookRequestAction = {
   type: typeof DELETE_BOOK_REQUEST;
@@ -195,8 +198,35 @@ export type DeleteBookActions =
   | DeleteBookFailureAction
   | DeleteBookResetAction
 
+//Add a Book
+export type AddBookRequestAction = {
+  type: typeof ADD_BOOK_REQUEST;
+}
+export type AddBookFailureAction = {
+  type: typeof ADD_BOOK_FAILURE;
+  payload: {
+    errorMsg: string
+  }
+}
+export type AddBookSuccessAction = {
+  type: typeof ADD_BOOK_SUCCESS;
+}
+export type AddBookResetAction = {
+  type: typeof ADD_BOOK_RESET;
+}
+export type AddBookState = {
+  isLoading: boolean;
+  error: any;
+  isAdded: boolean;
+}
+export type AddBookActions =
+  | AddBookRequestAction
+  | AddBookFailureAction
+  | AddBookSuccessAction
+  | AddBookResetAction
 
-  // For the app
+
+// For the app
 export type AppState = {
   authors: AuthorsState
 
@@ -204,4 +234,5 @@ export type AppState = {
   editBook: EditBookState
   getBookById: GetBookByIdState
   deleteBook: DeleteBookState
+  addBook: AddBookState
 }
