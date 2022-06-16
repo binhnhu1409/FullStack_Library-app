@@ -27,18 +27,18 @@ const Header = () => {
           <li className="navbar__item">
             <a className='navbar__link' href='/'>Home</a>
           </li>
-          <li className="navbar__item">
+          {/* <li className="navbar__item">
             <a className='navbar__link' href='#genres'>Browse Categories</a>
-          </li>
+          </li> */}
         </ul>
 
         {/* favorite cart on the right */}
-        <button className="navbar__icon">
+        {/* <button className="navbar__icon">
           <BsFillBookmarkHeartFill />
           <span className="navbar__favorite">
-            {/* {favoriteCountries.length} */}
+            {favoriteCountries.length}
           </span>
-        </button>
+        </button> */}
 
       </nav>
     </header>

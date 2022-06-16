@@ -26,6 +26,10 @@ export default function BookDetails() {
     navigate(`/books/edit/${bookId}`);
   };
 
+  const navigateToDeletePage = () => {
+    navigate(`/books/delete/${bookId}`);
+  };
+
   return (
     <>
       <section className='onebook'>
@@ -61,7 +65,7 @@ export default function BookDetails() {
               Edit book
             </button>
 
-            <button className='home__btn'>
+            <button className='home__btn' onClick={navigateToDeletePage}>
               Delete book
             </button>
         </div>

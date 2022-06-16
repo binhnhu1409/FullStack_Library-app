@@ -1,0 +1,42 @@
+@import '../../SASS/mixins';
+@import '../../SASS/variables';
+
+.modal-container {
+  @include center;
+  text-align: center;
+  margin-bottom: 200px;
+}
+
+.modal-confirm {		
+	color: $color-text;
+	width: 400px;
+}
+
+.modal-confirm .modal-content {
+  margin: 50px;
+}
+
+.modal-confirm h4 {
+	font-size: 26px;
+}
+
+.modal-confirm .btn, .modal-confirm .btn:active {
+	color: $color-background;
+	transition: all 0.4s;
+  padding: 1em 1.5em;
+	border-radius: 0.5em;
+	margin: 0 10px;
+}
+
+.modal-confirm .btn-secondary {
+	background: $color-grey;
+}
+.modal-confirm .btn-secondary:hover, .modal-confirm .btn-secondary:focus {
+	background: $color-light;
+}
+.modal-confirm .btn-danger {
+	background: $color-alertlight;
+}
+.modal-confirm .btn-danger:hover, .modal-confirm .btn-danger:focus {
+	background: $color-alertbold;
+}

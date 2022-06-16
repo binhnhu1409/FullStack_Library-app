@@ -1,15 +1,21 @@
 import React from 'react'
 import { Link } from 'react-router-dom'
-import { useDispatch } from 'react-redux'
 import { AiOutlineEdit } from 'react-icons/ai'
-import { MdOutlineDeleteForever } from 'react-icons/md'
+// import { MdOutlineDeleteForever } from 'react-icons/md'
 
-import { editBook } from '../../redux/actions'
 import { BookProps } from '../../types'
 import './bookcard.scss'
 
 const BookCard = ({ book }: BookProps ) => {
-  const dispatch = useDispatch<any>()
+  // const navigate = useNavigate();
+
+  // const navigateToDeletePage = () => {
+  //   navigate(`/books/delete/${book._id}`);
+  // };
+
+  // const navigateToEditPage = () => {
+  //   navigate(`/books/edit/${book._id}`);
+  // };
 
   return (
     <div className='grid__item'>
@@ -31,19 +37,17 @@ const BookCard = ({ book }: BookProps ) => {
       </article>
       <div className='info'>
         <span className='info__status'>{book.status}</span>
-        <button
-            className="info__button"
-          >
-            <Link to={`books/edit/${book._id}`}>
-              <AiOutlineEdit className="info__icon" />
-            </Link>
+
+        <button className="info__button">
+          <Link to={`books/edit/${book._id}`}>
+            <AiOutlineEdit className="info__icon" />
+          </Link>
         </button>
-        <button
-            className="info__button"
-            // onClick={() => dispatch(RemoveFavoriteCountry(country))}
-          >
+
+        {/* <button className="info__button" onClick={navigateToEditPage}>
             <MdOutlineDeleteForever className="info__icon" />
-        </button>
+        </button> */}
+       
       </div>
     </div>
   )

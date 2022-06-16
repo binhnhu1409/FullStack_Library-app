@@ -5,14 +5,15 @@ import rootReducer from './reducers'
 import { AppState } from '../types'
 
 const initState: AppState = {
-  books: {
-    isLoading: false,
-    books: [],
-    error: null,
-  },
   authors: {
     isLoading: false,
     authors: [],
+    error: null,
+  },
+
+  books: {
+    isLoading: false,
+    books: [],
     error: null,
   },
   editBook: {
@@ -24,6 +25,11 @@ const initState: AppState = {
     isLoading: false,
     error: null,
     book: null,
+  },
+  deleteBook: {
+    isLoading: false,
+    error: null,
+    isDeleted: false,
   },
 }
 
